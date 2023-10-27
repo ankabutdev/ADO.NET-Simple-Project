@@ -39,13 +39,13 @@ public class Program
         //await Service.UpdateAsync(1, user);
 
         // GetById
-        //var result = await Service.GetByIdAsync(2);
-        //Console.WriteLine(result);
+        //var resultGetById = await Service.GetByIdAsync(2);
+        //Console.WriteLine(resultGetById);
 
         // GetAll
-        //var result = await Service.GetAllAsync();
+        //var resultGetAll = await Service.GetAllAsync();
 
-        //foreach (var item in result)
+        //foreach (var item in resultGetAll)
         //{
         //    Console.WriteLine(item.Id);
         //    Console.WriteLine(item.Name);
@@ -60,9 +60,9 @@ public class Program
         //}
 
         // DeepDelete
-        //var result = await Service.DeepDeleteAsync(2);
-        //Console.WriteLine(result);
+        //var resultDeepDelete = await Service.DeepDeleteAsync(2);
+        //Console.WriteLine(resultDeepDelete);
 
-        // Dele
+        
     }
 }
