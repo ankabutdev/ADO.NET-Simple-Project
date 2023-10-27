@@ -77,9 +77,34 @@ public class EmployeeService : BaseRepository, IEmployees<Employees>
         }
     }
 
-    public Task<bool> DeleteAsync(int id)
+    public async Task<bool> DeleteAsync(int id)
     {
-        throw new NotImplementedException();
+        if (id <= 0)
+            return false;
+
+        try
+        {
+            await _connection.OpenAsync();
+            string query = "UPDATE Employees " +
+                "SET Status = 3 " +
+                "WHERE Id = @id";
+
+            SqlCommand command = new SqlCommand(query, _connection);
+            command.Parameters.AddWithValue("@id", id);
+
+            var result = await command.ExecuteNonQueryAsync();
+
+            return result > 0;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            return false;
+        }
+        finally
+        {
+            await _connection.CloseAsync();
+        }
     }
 
     public async Task<IList<Employees>> GetAllAsync()

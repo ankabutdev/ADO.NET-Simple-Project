@@ -1,6 +1,4 @@
 ﻿using DemoSimpleTaskLesson.Services.Employee;
-using DemoSimpleTaskLesson.Models;
-using DemoSimpleTaskLesson.Enums;
 
 namespace DemoSimpleTaskLesson;
 
@@ -22,6 +20,7 @@ public class Program
         //    Role = Role.Admin,
         //    CreatedDate = DateTime.Now,
         //});
+
         //Console.ReadKey();
 
         // Update
@@ -63,6 +62,8 @@ public class Program
         //var resultDeepDelete = await Service.DeepDeleteAsync(2);
         //Console.WriteLine(resultDeepDelete);
 
-        
+        // Delete
+        var resultDelete = await Service.DeleteAsync(3);
+        Console.WriteLine(resultDelete);
     }
 }
