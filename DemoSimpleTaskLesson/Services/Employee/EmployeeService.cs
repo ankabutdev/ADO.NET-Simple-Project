@@ -85,12 +85,15 @@ public class EmployeeService : BaseRepository, IEmployees<Employees>
         try
         {
             await _connection.OpenAsync();
+
             string query = "UPDATE Employees " +
-                "SET Status = 3 " +
+                "SET Status = 3," +
+                "DeletedDate = @DeletedDate " +
                 "WHERE Id = @id";
 
             SqlCommand command = new SqlCommand(query, _connection);
             command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@DeletedDate", DateTime.Now);
 
             var result = await command.ExecuteNonQueryAsync();
 

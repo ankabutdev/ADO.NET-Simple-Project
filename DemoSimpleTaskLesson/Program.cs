@@ -1,4 +1,6 @@
-﻿using DemoSimpleTaskLesson.Services.Employee;
+﻿using DemoSimpleTaskLesson.Enums;
+using DemoSimpleTaskLesson.Models;
+using DemoSimpleTaskLesson.Services.Employee;
 
 namespace DemoSimpleTaskLesson;
 
@@ -63,7 +65,7 @@ public class Program
         //Console.WriteLine(resultDeepDelete);
 
         // Delete
-        var resultDelete = await Service.DeleteAsync(3);
+        var resultDelete = await Service.DeleteAsync(4);
         Console.WriteLine(resultDelete);
     }
 }
